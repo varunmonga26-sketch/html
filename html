@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yellowstone National Park - America's First National Park</title>
+  <meta name="description" content="Discover Yellowstone National Park's geysers, wildlife, and pristine wilderness across 2.2 million acres. Plan your visit to America's first national park with our comprehensive guide to activities, safety, and stunning photography." />
+  
+  <!-- Open Graph tags for social media sharing -->
+  <meta property="og:title" content="Yellowstone National Park - America's First National Park" />
+  <meta property="og:description" content="Explore geysers, wildlife viewing, hiking trails, and natural wonders in America's first national park. Complete visitor guide with safety tips and photo gallery." />
+  <meta property="og:image" content="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c24b1ee5-00b6-40d9-aaa0-dbd0c5b419ec.png" />
+  <meta property="og:type" content="website" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --primary: #eab308;
+      --primary-foreground: #1c1917;
+      --background: #0f172a;
+      --foreground: #f1f5f9;
+      --card: #1e293b;
+      --card-foreground: #f1f5f9;
+      --muted: #334155;
+      --muted-foreground: #94a3b8;
+      --border: #334155;
+      --destructive: #dc2626;
+    }
+
+    [data-theme="light"] {
+      --background: #fffbeb;
+      --foreground: #1c1917;
+      --card: #ffffff;
+      --card-foreground: #1c1917;
+      --muted: #fef3c7;
+      --muted-foreground: #78716c;
+      --border: #fde68a;
+    }
+
+    * {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--background);
+      color: var(--foreground);
+      transition: all 0.3s ease;
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideLeft 0.8s ease-out forwards;
+    }
+
+    @keyframes slideLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      animation: slideRight 0.8s ease-out forwards;
+    }
+
+    @keyframes slideRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .slide-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUp 0.8s ease-out forwards;
+    }
+
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.95);
+      animation: scaleUp 0.8s ease-out forwards;
+    }
+
+    @keyframes scaleUp {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .image-hover {
+      transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+    }
+
+    .image-hover:hover {
+      transform: scale(1.03) translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      filter: brightness(1.05) saturate(1.1);
+    }
+
+    .gallery-item {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: galleryFade 0.8s ease-out forwards;
+    }
+
+    @keyframes galleryFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .hero-parallax {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .animation-delay-200 {
+      animation-delay: 0.2s;
+    }
+
+    .animation-delay-400 {
+      animation-delay: 0.4s;
+    }
+
+    .animation-delay-600 {
+      animation-delay: 0.6s;
+    }
+
+    .animation-delay-800 {
+      animation-delay: 0.8s;
+    }
+
+    .animation-delay-1000 {
+      animation-delay: 1s;
+    }
+
+    .bg-background { background-color: var(--background); }
+    .text-foreground { color: var(--foreground); }
+    .bg-card { background-color: var(--card); }
+    .text-card-foreground { color: var(--card-foreground); }
+    .text-muted-foreground { color: var(--muted-foreground); }
+    .bg-muted { background-color: var(--muted); }
+    .border-border { border-color: var(--border); }
+    .text-primary { color: var(--primary); }
+    .bg-primary { background-color: var(--primary); }
+    .text-primary-foreground { color: var(--primary-foreground); }
+    .text-destructive { color: var(--destructive); }
+    .bg-destructive { background-color: var(--destructive); }
+  </style>
+</head>
+<body class="bg-background text-foreground min-h-screen">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <h1 class="text-xl md:text-2xl font-bold text-primary">
+            🏔️ Yellowstone National Park
+          </h1>
+        </div>
+        <div class="flex items-center space-x-8">
+          <nav class="hidden md:flex space-x-6">
+            <button onclick="scrollToSection('about')" class="nav-link text-foreground hover:text-primary font-medium cursor-pointer">
+              About
+            </button>
+            <button onclick="scrollToSection('activities')" class="nav-link text-foreground hover:text-primary font-medium cursor-pointer">
+              Activities
+            </button>
+            <button onclick="scrollToSection('safety')" class="nav-link text-foreground hover:text-primary font-medium cursor-pointer">
+              Safety
+            </button>
+            <button onclick="scrollToSection('gallery')" class="nav-link text-foreground hover:text-primary font-medium cursor-pointer">
+              Gallery
+            </button>
+          </nav>
+          <button id="themeToggle" class="flex items-center space-x-2 px-3 py-2 rounded-lg bg-yellow-200 hover:bg-yellow-300 text-gray-800 transition-colors">
+            <span id="themeIcon">☀️</span>
+            <span class="hidden sm:inline" id="themeText">Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 hero-parallax" style="background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c24b1ee5-00b6-40d9-aaa0-dbd0c5b419ec.png')"></div>
+    <div class="absolute inset-0 bg-black/40"></div>
+    
+    <!-- Content -->
+    <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 scale-in">
+        <span class="text-primary">America's</span> First
+        <br class="hidden sm:block" />
+        National Park
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto fade-in animation-delay-200">
+        Discover geysers, wildlife, and pristine wilderness across 2.2 million acres of natural wonder
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in animation-delay-400">
+        <button onclick="scrollToSection('about')" class="inline-flex items-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-yellow-400 transition-colors">
+          Explore Yellowstone
+        </button>
+        <button onclick="scrollToSection('gallery')" class="inline-flex items-center px-8 py-3 bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-lg font-semibold hover:bg-white/20 transition-colors">
+          View Gallery
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="slide-in-left">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9dccee90-2dc2-41b0-98eb-dd85aeec900e.png" alt="Colorful Grand Prismatic Spring with rainbow microbial mats" class="w-full h-80 lg:h-96 object-cover rounded-2xl shadow-2xl image-hover" />
+        </div>
+        <div class="slide-in-right">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Welcome to <span class="text-primary">Yellowstone</span>
+          </h2>
+          <p class="text-lg text-muted-foreground mb-6 leading-relaxed">
+            Established in 1872, Yellowstone National Park was the world's first national park. Spanning over 2.2 million acres across Wyoming, Montana, and Idaho, it's a living laboratory of geological wonders and diverse ecosystems.
+          </p>
+          <p class="text-lg text-muted-foreground mb-8 leading-relaxed">
+            Home to half of the world's geothermal features, including the famous Old Faithful geyser, Yellowstone also hosts the largest high-altitude lake in North America and serves as the core of the Greater Yellowstone Ecosystem.
+          </p>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="text-center p-4 bg-card rounded-xl border border-border">
+              <div class="text-2xl font-bold text-primary mb-2">10,000+</div>
+              <div class="text-sm text-muted-foreground">Hydrothermal Features</div>
+            </div>
+            <div class="text-center p-4 bg-card rounded-xl border border-border">
+              <div class="text-2xl font-bold text-primary mb-2">67</div>
+              <div class="text-sm text-muted-foreground">Mammal Species</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities -->
+  <section id="activities" class="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 fade-in">Things to Do</h2>
+        <p class="text-xl text-muted-foreground max-w-3xl mx-auto fade-in animation-delay-200">
+          From geysers to wildlife viewing, Yellowstone offers endless adventures for every type of explorer
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div class="bg-card rounded-2xl p-6 border border-border shadow-lg slide-in-up">
+          <div class="text-3xl mb-4">🌋</div>
+          <h3 class="text-xl font-bold mb-3">Geothermal Wonders</h3>
+          <p class="text-muted-foreground mb-4">
+            Witness Old Faithful's regular eruptions and explore the vibrant colors of Grand Prismatic Spring. Stay on designated boardwalks for safety.
+          </p>
+          <ul class="text-sm text-muted-foreground space-y-1">
+            <li>• Old Faithful Geyser</li>
+            <li>• Grand Prismatic Spring</li>
+            <li>• Mammoth Hot Springs</li>
+          </ul>
+        </div>
+
+        <div class="bg-card rounded-2xl p-6 border border-border shadow-lg slide-in-up animation-delay-200">
+          <div class="text-3xl mb-4">🥾</div>
+          <h3 class="text-xl font-bold mb-3">Hiking Adventures</h3>
+          <p class="text-muted-foreground mb-4">
+            Explore over 1,000 miles of trails, from easy boardwalks to challenging backcountry routes through pristine wilderness.
+          </p>
+          <ul class="text-sm text-muted-foreground space-y-1">
+            <li>• Uncle Tom's Trail</li>
+            <li>• Mount Washburn</li>
+            <li>• Fairy Falls</li>
+          </ul>
+        </div>
+
+        <div class="bg-card rounded-2xl p-6 border border-border shadow-lg slide-in-up animation-delay-400">
+          <div class="text-3xl mb-4">🦌</div>
+          <h3 class="text-xl font-bold mb-3">Wildlife Viewing</h3>
+          <p class="text-muted-foreground mb-4">
+            Observe bison, elk, bears, and wolves in their natural habitat. Best viewing times are dawn and dusk.
+          </p>
+          <ul class="text-sm text-muted-foreground space-y-1">
+            <li>• Lamar Valley</li>
+            <li>• Hayden Valley</li>
+            <li>• Swan Lake Flats</li>
+          </ul>
+        </div>
+
+        <div class="bg-card rounded-2xl p-6 border border-border shadow-lg slide-in-up animation-delay-600">
+          <div class="text-3xl mb-4">🏕️</div>
+          <h3 class="text-xl font-bold mb-3">Camping</h3>
+          <p class="text-muted-foreground mb-4">
+            Experience the park's magic at sunrise and sunset from 12 campgrounds. Reservations recommended.
+          </p>
+          <ul class="text-sm text-muted-foreground space-y-1">
+            <li>• Madison Campground</li>
+            <li>• Canyon Campground</li>
+            <li>• Grant Village</li>
+          </ul>
+        </div>
+
+        <div class="bg-card rounded-2xl p-6 border border-border shadow-lg slide-in-up animation-delay-800">
+          <div class="text-3xl mb-4">📸</div>
+          <h3 class="text-xl font-bold mb-3">Photography</h3>
+          <p class="text-muted-foreground mb-4">
+            Capture stunning landscapes, from the Grand Canyon of Yellowstone to pristine alpine lakes.
+          </p>
+          <ul class="text-sm text-muted-foreground space-y-1">
+            <li>• Artist Point</li>
+            <li>• Grand Canyon Views</li>
+            <li>• Yellowstone Lake</li>
+          </ul>
+        </div>
+
+        <div class="bg-card rounded-2xl p-6 border border-border shadow-lg slide-in-up animation-delay-1000">
+          <div class="text-3xl mb-4">🎓</div>
+          <h3 class="text-xl font-bold mb-3">Ranger Programs</h3>
+          <p class="text-muted-foreground mb-4">
+            Join guided walks and educational talks to learn about geology, wildlife, and park conservation efforts.
+          </p>
+          <ul class="text-sm text-muted-foreground space-y-1">
+            <li>• Evening Programs</li>
+            <li>• Junior Ranger</li>
+            <li>• Guided Tours</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Safety -->
+  <section id="safety" class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="slide-in-left">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Stay <span class="text-destructive">Safe</span> in Yellowstone
+          </h2>
+          <p class="text-lg text-muted-foreground mb-8 leading-relaxed">
+            Yellowstone's beauty comes with inherent risks. Follow these essential safety guidelines to ensure a safe and enjoyable visit for everyone.
+          </p>
+          
+          <div class="space-y-6">
+            <div class="flex items-start space-x-4 p-4 bg-red-100 rounded-lg border border-red-200">
+              <div class="text-2xl">⚠️</div>
+              <div>
+                <h4 class="font-semibold mb-2 text-destructive">Wildlife Safety</h4>
+                <p class="text-sm text-muted-foreground">
+                  Stay at least 25 yards from bison and elk, 100 yards from bears and wolves. Never feed wildlife.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 p-4 bg-red-100 rounded-lg border border-red-200">
+              <div class="text-2xl">🌡️</div>
+              <div>
+                <h4 class="font-semibold mb-2 text-destructive">Geothermal Safety</h4>
+                <p class="text-sm text-muted-foreground">
+                  Stay on designated boardwalks and trails. Water temperatures can exceed 200°F.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 p-4 bg-red-100 rounded-lg border border-red-200">
+              <div class="text-2xl">🚮</div>
+              <div>
+                <h4 class="font-semibold mb-2 text-destructive">Leave No Trace</h4>
+                <p class="text-sm text-muted-foreground">
+                  Pack out all trash, don't disturb natural features, and respect the wilderness.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 p-4 bg-red-100 rounded-lg border border-red-200">
+              <div class="text-2xl">🥾</div>
+              <div>
+                <h4 class="font-semibold mb-2 text-destructive">Trail Safety</h4>
+                <p class="text-sm text-muted-foreground">
+                  Tell someone your hiking plans, carry bear spray, and turn back if weather conditions worsen.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 p-4 bg-red-100 rounded-lg border border-red-200">
+              <div class="text-2xl">🚗</div>
+              <div>
+                <h4 class="font-semibold mb-2 text-destructive">Driving Safety</h4>
+                <p class="text-sm text-muted-foreground">
+                  Drive slowly and watch for wildlife on roads, especially at dawn and dusk. Pull over safely to view animals.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-in-right">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/524d3618-9575-474b-b6c3-dafdfbb92691.png" alt="Safety signs and barriers at Yellowstone geothermal features" class="w-full h-80 lg:h-96 object-cover rounded-2xl shadow-2xl image-hover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 fade-in">
+          Photo Gallery
+        </h2>
+        <p class="text-xl text-muted-foreground fade-in animation-delay-200">
+          Stunning landscapes and wildlife from across the park
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="gallery-item">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/98783fb6-6eb2-4e99-866d-b8dae749b77b.png" alt="Panoramic view of snow-capped Tetons mountain range mirrored in tranquil alpine lake waters" class="w-full h-64 object-cover rounded-xl shadow-lg image-hover cursor-pointer" />
+        </div>
+        <div class="gallery-item animation-delay-200">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3dcb7cdb-0fd1-45ae-9737-1d273f785157.png" alt="Thunderous Lower Yellowstone Falls pounding through deep red-rock canyon walls" class="w-full h-64 object-cover rounded-xl shadow-lg image-hover cursor-pointer" />
+        </div>
+        <div class="gallery-item animation-delay-400">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7aba0221-3e35-447c-bbc4-0feadedae522.png" alt="Powerful grizzly bear family traversing sun-dappled forest path" class="w-full h-64 object-cover rounded-xl shadow-lg image-hover cursor-pointer" />
+        </div>
+        <div class="gallery-item animation-delay-600">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c24b1ee5-00b6-40d9-aaa0-dbd0c5b419ec.png" alt="Dramatic Old Faithful geyser erupting with powerful steam jets" class="w-full h-64 object-cover rounded-xl shadow-lg image-hover cursor-pointer" />
+        </div>
+        <div class="gallery-item animation-delay-800">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9dccee90-2dc2-41b0-98eb-dd85aeec900e.png" alt="Aerial shot of Old Faithful erupting with thick steaming columns" class="w-full h-64 object-cover rounded-xl shadow-lg image-hover cursor-pointer" />
+        </div>
+        <div class="gallery-item animation-delay-1000">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0d918be4-d3ef-42fe-90bc-5b2d958e63cb.png" alt="Hiking trail winding through lush meadow with bison grazing peacefully" class="w-full h-64 object-cover rounded-xl shadow-lg image-hover cursor-pointer" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-border">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <h3 class="text-xl font-bold mb-4 text-primary">
+            🏔️ Yellowstone National Park
+          </h3>
+          <p class="text-muted-foreground mb-4">
+            America's first national park, preserving unique geology and diverse ecosystems for future generations.
+          </p>
+          <p class="text-sm text-muted-foreground">
+            Made by <span class="font-semibold text-primary">Varun Monga</span>
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-3">Quick Links</h4>
+          <ul class="space-y-2 text-sm text-muted-foreground">
+            <li><button onclick="scrollToSection('about')" class="hover:text-primary transition-colors">About</button></li>
+            <li><button onclick="scrollToSection('activities')" class="hover:text-primary transition-colors">Activities</button></li>
+            <li><button onclick="scrollToSection('safety')" class="hover:text-primary transition-colors">Safety</button></li>
+            <li><button onclick="scrollToSection('gallery')" class="hover:text-primary transition-colors">Gallery</button></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-3">Resources</h4>
+          <ul class="space-y-2 text-sm text-muted-foreground">
+            <li><a href="#" class="hover:text-primary transition-colors">Plan Your Visit</a></li>
+            <li><a href="#" class="hover:text-primary transition-colors">Reservations</a></li>
+            <li><a href="#" class="hover:text-primary transition-colors">Park Conditions</a></li>
+            <li><a href="#" class="hover:text-primary transition-colors">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTop" class="fixed bottom-6 right-6 p-3 bg-primary text-primary-foreground rounded-full shadow-lg hover:bg-yellow-400 transition-all duration-300 opacity-0 pointer-events-none transform translate-y-4">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </button>
+
+  <script>
+    // Theme Toggle
+    let isDark = true;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
+
+    themeToggle.addEventListener('click', () => {
+      isDark = !isDark;
+      
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Light';
+        themeToggle.className = 'flex items-center space-x-2 px-3 py-2 rounded-lg bg-yellow-200 hover:bg-yellow-300 text-gray-800 transition-colors';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Dark';
+        themeToggle.className = 'flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-white transition-colors';
+      }
+    });
+
+    // Smooth scrolling function
+    function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Scroll to top functionality
+    const scrollTopButton = document.getElementById('scrollTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollTopButton.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+        scrollTopButton.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      } else {
+        scrollTopButton.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+        scrollTopButton.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      }
+    });
+
+    scrollTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Observe all animated elements
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .slide-in-up, .scale-in, .gallery-item').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
